@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Northstar BI</title>
+  <link rel="stylesheet" href="/static/styles.css">
+  <script src="/static/app.js" defer></script>
+</head>
+<body>
+  <header class="bar">
+    <div class="brand">Northstar <span>BI</span></div>
+    <div id="who" class="who" hidden>
+      <span id="who-email"></span>
+      <span id="who-role" class="pill"></span>
+      <button id="logout" type="button" class="ghost">Sign out</button>
+    </div>
+  </header>
+
+  <main>
+    <section id="login" class="card login" hidden>
+      <h1>Sign in</h1>
+      <p class="muted">Synthetic demo data. Try <code>owner@</code>, <code>marketer@</code>, or
+        <code>viewer@northstar.example</code> with the demo password from <code>.env.example</code>.</p>
+      <form id="login-form">
+        <label>Email <input name="email" type="email" autocomplete="username" required></label>
+        <label>Password <input name="password" type="password" autocomplete="current-password" required></label>
+        <button type="submit">Sign in</button>
+        <p id="login-error" class="error" role="alert"></p>
+      </form>
+    </section>
+
+    <section id="dash" hidden>
+      <div class="toolbar">
+        <div class="ranges" role="group" aria-label="Date range">
+          <button type="button" data-days="7">7d</button>
+          <button type="button" data-days="30" class="active">30d</button>
+          <button type="button" data-days="90">90d</button>
+          <button type="button" data-days="365">1y</button>
+        </div>
+        <div id="range-label" class="muted"></div>
+      </div>
+      <div id="freshness" class="banner" hidden></div>
+      <div id="tiles" class="tiles"></div>
+      <div class="card">
+        <div class="card-head">
+          <h2>Daily trend</h2>
+          <div id="legend" class="legend"></div>
+        </div>
+        <div id="chart" class="chart" aria-label="Daily trend chart"></div>
+      </div>
+      <div class="card">
+        <h2>By product</h2>
+        <div class="table-wrap"><table id="products"></table></div>
+      </div>
+      <p id="cache" class="muted small"></p>
+    </section>
+  </main>
+</body>
+</html>
